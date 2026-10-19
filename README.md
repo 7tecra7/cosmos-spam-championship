@@ -52,7 +52,7 @@ In September 2026, a final escalation through HackerOne Support confirmed the pr
 
 The program cited account signal and trial reports to maintain the Spam status. Platform data shows a different pattern.
 
-Account `knafeh` joined in June 2026, months after the February reports. Cosmos accepted their report and paid reward bounty.
+Account `0xtruthlov3r` joined in June 2026, months after the February reports. Cosmos accepted their report and paid reward bounty.
 
 Account `wataha` joined in February 2026 with a negative signal rating (-3.60, 32nd percentile). Cosmos accepted their report and paid reward bounty.
 
