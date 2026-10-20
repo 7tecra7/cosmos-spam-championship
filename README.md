@@ -20,6 +20,11 @@ On February 16 and 19, @povim_serdar reviewed the reports, confirmed the bugs, a
 
 On March 2, the Cosmos program published revised eligibility rules. On the same day, @cozartshmoopler closed all three previously Triaged reports as Spam. 
 
+<img src="./evidence/retroactive-rules-update.png" width="100%">
+
+<img src="./evidence/Report_3547293_triaged_spam.png" width="100%">
+<img src="./evidence/Report_3547382_triaged_spam.png" width="100%">
+
 A Spam status is an eligibility designation that applies a signal penalty. It is an administrative action, not a technical refutation.
 
 An escalation was filed with multiple HackerOne Support. Support noted the conflict but left the Spam status untouched.
@@ -32,6 +37,9 @@ The fixes shipped in v0.70.0 and v0.61.11. The changelogs explicitly state: "Fix
 
 On May 4, a Request to Disclose was submitted. The program locked all three reports that day.
 
+<img src="./evidence/Report_3547293_locked.png" width="100%">
+<img src="./evidence/Report_3547382_locked.png" width="100%">
+
 The justification split. For the Critical report (#3547293), the triager claimed: "The changes made were related to audit fixes, not to your submissions." For the two High reports (#3547382 and #3551078) in the same release batch, the program claimed the disclosure request was "threatening in direct violation of our policies."
 
 In September 2026, a final escalation through HackerOne Support confirmed the program refused to alter its stance, citing "signal criteria" and Support closed the ticket.
@@ -42,23 +50,29 @@ In September 2026, a final escalation through HackerOne Support confirmed the pr
 
 | Report | Severity | Vulnerability Class | Git Marker |
 |---|---|---|---|
-| #3547293 | Critical | Async ack authorization | Commit `56ca5e5` (Mar 18), PR #2480 / #2481 (Apr 24) |
-| #3547382 | High | Unvalidated SourcePort on send | PR #2478 / #2479 (Apr 24) |
-| #3551078 | High | V1 port passing to V2 handlers | PR #2478 / #2479 (Apr 24) |
+| #3547293 | Critical | Async ack authorization | [Commit `56ca5e5`](https://github.com/CosmWasm/wasmd/commit/56ca5e529c66b3fa0e18d2aa0915812ae249ba01) (Mar 18), [PR #2480](https://github.com/CosmWasm/wasmd/pull/2480) / [PR #2481](https://github.com/CosmWasm/wasmd/pull/2481) (Apr 24) |
+| #3547382 | High | Unvalidated SourcePort on send | [PR #2478](https://github.com/CosmWasm/wasmd/pull/2478) / [PR #2479](https://github.com/CosmWasm/wasmd/pull/2479) (Apr 24) |
+| #3551078 | High | V1 port passing to V2 handlers | [PR #2478](https://github.com/CosmWasm/wasmd/pull/2478) / [PR #2479](https://github.com/CosmWasm/wasmd/pull/2479) (Apr 24) |
 
 ---
 
 ## Selective Enforcement and Platform Metrics
 
-The program cited account signal and trial reports to maintain the Spam status. Platform data shows a different pattern.
+The program cited account signal and trial reports to maintain the Spam status. Platform data across multiple accounts shows a different pattern.
 
-Account `0xtruthlov3r` joined in June 2026, months after the February reports. Cosmos accepted their report and paid reward bounty.
+examples:
+* Account `0xtruthlov3r` joined in June 2026, months after the February reports. Cosmos accepted their report and paid a reward bounty.
+* Account `wataha` joined in February 2026 with a negative signal rating (-3.60, 32nd percentile). Cosmos accepted their report and paid a reward bounty.
 
-Account `wataha` joined in February 2026 with a negative signal rating (-3.60, 32nd percentile). Cosmos accepted their report and paid reward bounty.
+<p align="center">
+  <img src="./evidence/wth_feb.png" width="48%" />
+  <img src="./evidence/0xt_Jun.png" width="48%" />
+</p>
+<p align="center"><i>Figure: Sample public profile metrics demonstrating that account age and low/negative signal thresholds did not block bounty payouts elsewhere in the program.</i></p>
 
-Neither account age nor low signal blocked those payouts. The policy was applied selectively to reports that were already triaged.
+Several other accounts with similar metrics have likewise received payouts. Neither account age nor low signal consistently blocked payouts across the program. The policy was applied selectively to reports that were already triaged.
 
-The program had full access to the technical reports and proof-of-concept code before commit `56ca5e5`, before PRs #2478-#2481, and before the audit claims were introduced.
+The program had full access to the technical reports and proof-of-concept code before commit `56ca5e5`, before PRs #2478–#2481, and before the audit claims were introduced.
 
 ---
 
